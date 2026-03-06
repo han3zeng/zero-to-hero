@@ -1,7 +1,10 @@
 # Debian/Ubuntu-based image
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y graphviz && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    graphviz \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create non‑root user "app" with home dir
 RUN useradd -m -u 1000 -s /bin/bash app
